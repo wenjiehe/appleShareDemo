@@ -36,7 +36,7 @@
 }
 ```
 
-## 可分享的平台
+## 可分享的平台或功能
 
 ```Objective-C
 typedef NSString * UIActivityType NS_TYPED_EXTENSIBLE_ENUM;
