@@ -3,7 +3,7 @@
 
 > 利用UIActivityViewController类进行分享，可以将图片视频直接分享至我们需要的平台，或者保存至系统的剪切板、备忘录、wechat等
 
-## 示例代码
+## 部分示例代码
 
 ```
 - (void)callShare
