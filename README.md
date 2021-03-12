@@ -5,7 +5,7 @@
 
 ## 部分示例代码
 
-```
+```Objective-C
 - (void)callShare
 {
     NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
