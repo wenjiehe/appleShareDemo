@@ -34,7 +34,8 @@
 
 #pragma mark -- 显示位置 顶部title，中间share，底部action
 + (UIActivityCategory)activityCategory{
-    return UIActivityCategoryShare;
+//    return UIActivityCategoryShare;
+    return UIActivityCategoryAction;
 }
 
 - (NSString *)activityType{
