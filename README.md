@@ -36,6 +36,29 @@
 }
 ```
 
+## 可分享的平台
+
+```Objective-C
+typedef NSString * UIActivityType NS_TYPED_EXTENSIBLE_ENUM;
+
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToFacebook     API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToTwitter      API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToWeibo        API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;    // SinaWeibo
+UIKIT_EXTERN UIActivityType const UIActivityTypeMessage            API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeMail               API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePrint              API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeCopyToPasteboard   API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeAssignToContact    API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeSaveToCameraRoll   API_AVAILABLE(ios(6.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeAddToReadingList   API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToFlickr       API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToVimeo        API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypePostToTencentWeibo API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeAirDrop            API_AVAILABLE(ios(7.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeOpenInIBooks       API_AVAILABLE(ios(9.0)) __TVOS_PROHIBITED;
+UIKIT_EXTERN UIActivityType const UIActivityTypeMarkupAsPDF        API_AVAILABLE(ios(11.0)) __TVOS_PROHIBITED;
+```
+
 ## 用到的类
 
 * [UIActivityViewController](https://developer.apple.com/documentation/uikit/uiactivityviewcontroller?language=objc)
