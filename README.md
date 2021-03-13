@@ -64,6 +64,7 @@ UIKIT_EXTERN UIActivityType const UIActivityTypeMarkupAsPDF        API_AVAILABLE
 
 * [UIActivityViewController](https://developer.apple.com/documentation/uikit/uiactivityviewcontroller?language=objc)
 * [UIActivity](https://developer.apple.com/documentation/uikit/uiactivity?language=objc)
+* [SLComposeViewController](https://developer.apple.com/documentation/social/slcomposeviewcontroller?language=occ)
 
 ## 参考
 
