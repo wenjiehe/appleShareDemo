@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import "WJCustomActivity.h"
 #import <Social/Social.h>
-
+#import "WJMailManager.h"
 
 typedef NS_ENUM(NSUInteger, ServiceShareType) {
     ServiceShareTypeWeChat, //微信
@@ -19,7 +19,10 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
     ServiceShareTypeVimeo,
     ServiceShareTypeTwitter,  //推特
     ServiceShareTypeYouDao,  //有道笔记
-    ServiceShareTypeYiXin,  //易信
+    ServiceShareTypeHealth, //健康app
+    ServiceShareTypeDing, //钉钉
+    ServiceShareTypeAlipay, //支付宝
+    ServiceShareTypeTaobao, //淘宝
 };
 
 
@@ -46,7 +49,10 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
 //    [self callCustomShareOrAction];
     
     //自定义分享
-    [self callCustomViewShare];
+//    [self callCustomViewShare];
+    
+    //发送邮件
+    [[WJMailManager sharedInstance] sendMail:self title:@"随意打的" toRecipients:@[@"94282425@qq.com"] CcRecipients:@[@""] content:@"个人及饿哦该金融恶搞金融嗯根据哦我机构外加工外加工未根据欧文架构概括为顾客王凯文OK哦顾客我刚看我的空空" isHTML:NO];
 }
 
 - (void)callShare
@@ -107,8 +113,15 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
 
 - (void)callCustomViewShare
 {
-//    NSString *type = [self serviceTypeWithType:ServiceShareTypeFacebook];
-    NSString *type = @"com.apple.Maps.GeneralMapsWidget";
+    /*
+     SOCIAL_EXTERN NSString *const SLServiceTypeTwitter NS_DEPRECATED(10_8, 10_13, 6_0, 11_0);
+     SOCIAL_EXTERN NSString *const SLServiceTypeFacebook NS_DEPRECATED(10_8, 10_13, 6_0, 11_0);
+     SOCIAL_EXTERN NSString *const SLServiceTypeSinaWeibo NS_DEPRECATED(10_8, 10_13, 6_0, 11_0);
+     SOCIAL_EXTERN NSString *const SLServiceTypeTencentWeibo NS_DEPRECATED(10_8, 10_13, 6_0, 11_0);
+     SOCIAL_EXTERN NSString *const SLServiceTypeLinkedIn NS_DEPRECATED(10_8, 10_13, 6_0, 11_0);
+     */
+    NSString *type = [self serviceTypeWithType:ServiceShareTypeDing];
+    //匹配其他app的Share Extension
     if (![SLComposeViewController isAvailableForServiceType:type]) {
         NSLog(@"没有相关配置");
         return;
@@ -116,7 +129,7 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
     
     SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:type];
     if(composeVC){
-//        [composeVC addImage:[UIImage imageNamed:@"wuzhuo.jpg"]];
+        [composeVC addImage:[UIImage imageNamed:@"wuzhuo.jpg"]];
         [composeVC addURL:[NSURL URLWithString:@"https://www.baidu.com"]];
         [composeVC setInitialText:@"五竹"];
         
@@ -154,8 +167,8 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
         case ServiceShareTypeFacebook:
             type = @"com.apple.share.Facebook.post";
             break;
-        case ServiceShareTypeYiXin:
-            type = @"com.yixin.yixin.YXShareExtension";
+        case ServiceShareTypeDing:
+            type = @"com.laiwang.DingTalk.ShareExtension";
             break;
         case ServiceShareTypeYouDao:
             type = @"com.youdao.note.iphone.shareExtension";
@@ -165,6 +178,15 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
             break;
         case ServiceShareTypeTencentWeibo:
             type = @"com.apple.share.TencentWeibo.post";
+            break;
+        case ServiceShareTypeAlipay:
+            type = @"com.alipay.iphoneclient.ExtensionSchemeShare";
+            break;
+        case ServiceShareTypeHealth:
+            type = @"com.apple.Health.HealthShareExtension";
+            break;
+        case ServiceShareTypeTaobao:
+            type = @"com.taobao.taobao4iphone.ShareExtension";
             break;
     }
     return type;
