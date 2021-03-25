@@ -40,6 +40,30 @@ typedef NS_ENUM(NSUInteger, ServiceShareType) {
 
 }
 
+- (void)injected{
+    NSLog(@"feiwjgiewjgi = %s", __FUNCTION__);
+    self.view.backgroundColor = [UIColor redColor];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor cyanColor];
+    btn.tag = 100;
+    
+    [self.view addSubview:btn];
+    
+    [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)clickBtn:(UIButton *)btn
+{
+    NSLog(@"点击了btn");
+    [UIView animateWithDuration:2.5 delay:0.f usingSpringWithDamping:0.6 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+            btn.frame = CGRectMake(100, 300, 100, 50);
+        } completion:^(BOOL finished) {
+            btn.frame = CGRectMake(100, 100, 100, 100);
+        }];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     //系统自带的分享
